@@ -5,28 +5,28 @@ using OdeToFood.Data.Models;
 
 namespace OdeToFood.Data.Services
 {
-    public class InMemoryRestaurantDate : IRestaurantData
+    public class InMemoryRestaurantData : IRestaurantData
     {
         List<Restaurant> restaurants;
-        public InMemoryRestaurantDate()
+        public InMemoryRestaurantData()
         {
             restaurants = new List<Restaurant>()
             {
                 new Restaurant
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid(),
                     Name = "Scott's Pizza",
                     Cuisine = CuisineType.Italian
                 },
                  new Restaurant
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid(),
                     Name = "Tersiguels",
                     Cuisine = CuisineType.French
                 },
                   new Restaurant
                 {
-                    Id = Guid.NewGuid().ToString(),
+                    Id = Guid.NewGuid(),
                     Name = "Mango Grove",
                     Cuisine = CuisineType.Italian
                 }
