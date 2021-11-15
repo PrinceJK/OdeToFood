@@ -1,16 +1,16 @@
-﻿using System;
+﻿using OdeToFood.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using OdeToFood.Data.Models;
 
 namespace OdeToFood.Data.Services
 {
     public class InMemoryRestaurantData : IRestaurantData
     {
-        List<Restaurant> restaurants;
+        readonly List<Restaurant> _restaurants;
         public InMemoryRestaurantData()
         {
-            restaurants = new List<Restaurant>()
+            _restaurants = new List<Restaurant>()
             {
                 new Restaurant
                 {
@@ -36,17 +36,17 @@ namespace OdeToFood.Data.Services
         public void Add(Restaurant restaurant)
         {
             restaurant.Id = Guid.NewGuid();
-            restaurants.Add(restaurant);
+            _restaurants.Add(restaurant);
         }
 
         public Restaurant Get(Guid? id)
         {
-             return restaurants.FirstOrDefault(x => x.Id == id);
+            return _restaurants.FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Restaurant> GetAll()
         {
-            return restaurants.OrderBy(r => r.Name);
+            return _restaurants.OrderBy(r => r.Name);
         }
 
         public void Update(Restaurant restaurant)
