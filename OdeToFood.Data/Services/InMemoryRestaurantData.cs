@@ -33,6 +33,12 @@ namespace OdeToFood.Data.Services
             };
         }
 
+        public void Add(Restaurant restaurant)
+        {
+            restaurant.Id = Guid.NewGuid();
+            restaurants.Add(restaurant);
+        }
+
         public Restaurant Get(Guid? id)
         {
              return restaurants.FirstOrDefault(x => x.Id == id);
