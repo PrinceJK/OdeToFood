@@ -1,14 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OdeToFood.Data.Models;
+﻿using OdeToFood.Data.Models;
+using System;
+using System.Collections.Generic;
 
 namespace OdeToFood.Data.Services
 {
     public interface IRestaurantData
     {
         IEnumerable<Restaurant> GetAll();
-        
+        Restaurant Get(Guid? id);
     }
 }
