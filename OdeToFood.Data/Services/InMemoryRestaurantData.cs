@@ -28,7 +28,7 @@ namespace OdeToFood.Data.Services
                 {
                     Id = Guid.NewGuid(),
                     Name = "Mango Grove",
-                    Cuisine = CuisineType.Italian
+                    Cuisine = CuisineType.Indian
                 }
             };
         }
@@ -37,6 +37,15 @@ namespace OdeToFood.Data.Services
         {
             restaurant.Id = Guid.NewGuid();
             _restaurants.Add(restaurant);
+        }
+
+        public void Delete(Guid? id)
+        {
+            var restaurant = Get(id);
+            if (restaurant != null)
+            {
+                _restaurants.Remove(restaurant);
+            }
         }
 
         public Restaurant Get(Guid? id)
